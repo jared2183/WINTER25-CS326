@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CS326 Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #fff;
+        }
+
+        #login-form, #submit-section {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            width: 300px;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        input {
+            width: calc(100% - 20px);
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            border: 1px solid #4E2A84;
+            border-color: #4E2A84;
+            outline: #4E2A84
+        } 
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            border-color: #4E2A84;
+            border-width: 1px;
+            border-radius: 5px;
+            color: #4E2A84;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        logout {
+            border: None;
+            color: #ac97ca;
+        }
+
+        button:hover {
+            background-color: #d60eb8d8;
+            color: #ffffff;
+            border: None;
+        }
+
+        #login-status, #submit-status {
+            margin-top: 15px;
+            color: #5d656a;
+            font-size: 0.8em;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+
+<div id="login-form">
+    <p style = "font-size: 1.5em;">Login</p>
+    <input type="email" id="email" placeholder="Email"><br><br>
+    <input type="password" id="password" placeholder="Password"><br><br>
+    <button id="login-button">Login</button>
+    <p id="login-status"></p>
+</div>
+
+<div id="submit-section" style="display: none;">
+    <p id="response-label" style = "font-size: 1.5em;">Response</p>
+    <input type="text" id="response" placeholder="Enter your response."><br><br>
+    <button id="submit-button" style="margin-bottom: 1em;">Submit</button>
+    <button id="logout-button" style="border: None;">Logout</button>
+    <p id="submit-status"></p>
+</div>
+
+
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js";
+    import { getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js";
+    import { getDatabase, ref, set } from "https://www.gstatic.com/firebasejs/9.0.0/firebase-database.js";
+
+    // Firebase configuration
+    const firebaseConfig = {
+        apiKey: "AIzaSyDp0FpJO01nRWeW4ZWZHet8V_Gcvl0xLAc",
+        databaseURL: "https://drc-cs-9a3f6-default-rtdb.firebaseio.com",
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const database = getDatabase(app);
+
+    let idToken = null; // To store the Firebase token
+    let userLocation = {}; // To store the user's location
+
+    // Function to get user location
+    function getUserLocation() {
+        return new Promise((resolve, reject) => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => resolve({
+                        latitude: position.coords.latitude,
+                        longitude: position.coords.longitude
+                    }),
+                    (error) => reject("Geolocation error: " + error.message),
+                    { timeout: 10000 } // 10 seconds timeout for geolocation
+                );
+            } else {
+                reject("Geolocation is not supported by this browser.");
+            }
+        });
+    }
+
+    // Check URL for label parameter
+    const urlParams = new URLSearchParams(window.location.search);
+    const label = urlParams.get('label') || 'Response'; // Default to 'Response' if not provided
+    document.getElementById('response-label').innerText = label;
+
+    // Check authentication state and setup UI accordingly
+    onAuthStateChanged(auth, async (user) => {
+        if (user) {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('submit-section').style.display = 'block';
+
+            try {
+                idToken = await user.getIdToken(); // Get the Firebase token once
+            } catch (error) {
+                document.getElementById('login-status').innerText = "Error getting authentication token: " + error.message;
+            }
+        } else {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('submit-section').style.display = 'none';
+        }
+    });
+
+    // Login event
+    document.getElementById('login-button').addEventListener('click', async () => {
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+
+        try {
+            const userCredential = await signInWithEmailAndPassword(auth, email, password);
+            document.getElementById('login-status').innerText = "Login successful!";
+
+            // Get user location at login
+            try {
+                userLocation = await getUserLocation();
+            } catch (locError) {
+                document.getElementById('login-status').innerText = "Login successful! But geolocation failed: " + locError;
+            }
+
+        } catch (error) {
+            document.getElementById('login-status').innerText = "Error: " + error.message;
+        }
+    });
+    // Submit data event
+    document.getElementById('submit-button').addEventListener('click', async () => {
+        const user_response = document.getElementById('response').value.toUpperCase();
+
+        if (!idToken) {
+            document.getElementById('submit-status').innerText = "No authentication token available. Please re-login.";
+            return;
+        }
+
+        try {
+            const user = auth.currentUser;
+            const uid = user.uid;
+            const uuid = crypto.randomUUID();
+            const timestamp = Date.now();
+            const datetime = new Date(timestamp).toLocaleString(); // Convert timestamp to local date and time string
+
+            // Push data to Firebase Realtime Database
+            await set(ref(database, `users/${uid}/${uuid}`), {
+                email: user.email,
+                latitude: userLocation.latitude || null, // Use previously obtained location
+                longitude: userLocation.longitude || null,
+                user_response: user_response,
+                timestamp: timestamp,
+                label: label // Include label parameter in the data
+            });
+
+            console.log(uid)
+            console.log(uuid)
+            
+            // Format the success message
+            const successMessage = {
+                submitted: "success",
+                user: user.email,
+                timestamp: datetime,
+                response: user_response
+            };
+            
+            document.getElementById('submit-status').innerText = JSON.stringify(successMessage, null, 4); // Use JSON.stringify for better formatting
+
+        } catch (error) {
+            document.getElementById('submit-status').innerText = "Error submitting data: " + error.message;
+        }
+    });
+
+    // Logout event
+    document.getElementById('logout-button').addEventListener('click', () => {
+        signOut(auth).then(() => {
+            idToken = null; // Reset the token
+            document.getElementById('login-status').innerText = "Logged out successfully.";
+        }).catch((error) => {
+            document.getElementById('login-status').innerText = "Error logging out: " + error.message;
+        });
+    });
+
+</script>
+
+</body>
+</html>

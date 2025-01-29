@@ -24,49 +24,35 @@ revealOptions:
 
 <!--s-->
 
+## Announcements
+
+- PollEV has been removed. Everyone will receive credit for the first 3 lectures.
+  - New system is being tried out today. Please log in using your email and password from the homework assignments.
+
+- H.01 is being graded now.
+
+- H.02 is due on Tuesday, January 28 at 11:59 PM.
+
+- 50% of you voted for "Docker & Scalable Infrastructure" for our bonus 02.06.2025 lecture.
+
+
+<!--s-->
+
 <div class = "col-wrapper">
   <div class="c1 col-centered">
-  <div style="font-size: 0.8em; left: 0; width: 70%; position: absolute;">
+  <div style="font-size: 0.8em; left: 0; width: 60%; position: absolute;">
 
   # Welcome to CS 326.
-  ## Please check in using PollEverywhere.
-  Scan the QR code or go to [pollev.com/nucs](https://pollev.com/nucs)
+  ## Please check in by entering the code on the chalkboard.
 
   </div>
   </div>
-  <div class="c2 col-centered" style = "bottom: 0; right: 0; width: 100%; padding-top: 5%">
-  <img src="https://storage.googleapis.com/slide_assets/PollEverywhere.png" width="50%">
+  <div class="c2 col-centered" style = "bottom: 0; right: 0; width: 40%; padding-top: 5%">
+    <iframe src = "https://drc-cs.github.io/WINTER25-CS326/lectures/index.html?label=Check In" width = "100%" height = "100%"></iframe>
   </div>
 </div>
 
 <!--s-->
-
-## Question: Why is Kurtosis = 3 in a Normal Distribution?
-
-In probability, the **moments** of a distribution are a set of quantities that describe its shape. A moment is a specific quantitative measure of the shape of a set of points.
-
-<img src = "https://storage.googleapis.com/cs326-bucket/moments.png" style = "width: 100%">
-<p style="text-align: center; font-size: 0.6em; color: grey;"> Source: https://en.wikipedia.org/wiki/Standardized_moment</p>
-
-<!--s-->
-
-## Question: Why is Kurtosis = 3 in a Normal Distribution?
-
-In probability, the **moments** of a distribution are a set of quantities that describe its shape. A moment is a specific quantitative measure of the shape of a set of points.
-
-You will often see kurtosis notated as the fourth moment about the mean, divided by the standard deviation to the fourth power:
-
-$$ \frac{\mu_4}{\sigma^4} $$
-
-A property of normal distributions is that the $ \mu_4 $ is equal to $3 \sigma^4$, so:
-
-$$ \frac{3 \sigma^4}{\sigma^4} = 3 $$
-
-</div>
-
-<!--s-->
-
-
 
 <div class = "header-slide">
 
@@ -236,6 +222,30 @@ $ d_i = \text{rank}(x_i) - \text{rank}(y_i) $
 - Correlation coefficients measure the strength of a linear relationship between two variables.
 - Regression analysis can be used to describe the relationship between a dependent variable and one or more independent variables.
 
+<!--s-->
+
+## L.04 | Q.02
+
+What is a benefit of using Pearson's correlation coefficient over covariance?
+
+<div class="col-wrapper">
+<div class="c1 col-centered" style = "width: 70%; padding-bottom: 20%;">
+
+<div style = "line-height: 2em; font-size: 0.8em;">
+&emsp;A. It is a standardized measure of the strength of the relationship. <br>
+&emsp;B. It is not sensitive to outliers. <br>
+&emsp;C. It is not affected by the scale of the variables. <br>
+&emsp;D. It is not affected by the distribution of the data. <br>
+</div>
+
+</div>
+
+<div class="c2 col-centered" style = "width: 30%; padding-bottom: 20%">
+
+<iframe src = "https://drc-cs.github.io/WINTER25-CS326/lectures/index.html?label=L.04 | Q.02" width = "100%" height = "100%"></iframe>
+
+</div>
+</div>
 
 <!--s-->
 
@@ -462,10 +472,52 @@ This principle allows us to reduce the number of itemsets we need to consider wh
 
 <!--s-->
 
+## L.04 | Q.02
+
+What is otherwise defined as the *interestingness* of an association rule?
+
+<div class="col-wrapper">
+<div class="c1 col-centered" style = "width: 70%; padding-bottom: 20%;">
+
+<div style = "line-height: 2em; font-size: 0.8em;">
+&emsp;A. Confidence <br>
+&emsp;B. Support <br>
+&emsp;C. Lift <br>
+</div>
+
+</div>
+
+<div class="c2 col-centered" style = "width: 30%; padding-bottom: 20%">
+
+<iframe src = "https://drc-cs.github.io/WINTER25-CS326/lectures/index.html?label=L.04 | Q.02" width = "100%" height = "100%"></iframe>
+
+</div>
+</div>
+
+<!--s-->
+
 ## Summary
 
 - **Correlation** measures the strength of a relationship between two variables.
 - **Simpson's Paradox** is a phenomenon where a trend appears in different groups of data but disappears or reverses when these groups are combined.
 - **Association Analysis** measures the strength of co-occurrence between one item and another.
+
+<!--s-->
+
+<div class = "col-wrapper">
+  <div class="c1 col-centered">
+  <div style="font-size: 1em; left: 0; width: 50%; position: absolute;">
+
+  # H.02 | basic_statistics.py
+  ## Code & Free Response
+  ### Due: 01.28.2025 @ 11:59 PM
+
+</div>
+</div>
+<div class="c2 col-centered" style = "bottom: 0; right: 0; width: 100%; padding-top: 0%">
+<iframe src="https://lottie.host/embed/6c677caa-d54a-411c-b0c0-6f186378d571/UKVVhf0EJN.json" height = "100%" width = "100%"></iframe>
+
+</div>
+</div>
 
 <!--s-->
