@@ -14,7 +14,7 @@ def binarize(labels: list[str]) -> np.array:
     Returns:
         np.array: The binarized labels.
     """
-    raise NotImplementedError("Please implement the binarize function.")
+    return np.array([1 if s == "Chinstrap" else 0 for s in labels])
 
 def split_data(X: np.array, y: np.array, test_size: float=0.2, 
                 random_state: float = 42, shuffle: bool = True) -> Tuple[np.array, np.array, np.array, np.array]:
@@ -34,8 +34,8 @@ def split_data(X: np.array, y: np.array, test_size: float=0.2,
         shuffle (bool): Whether or not to shuffle the data before splitting.
 
     """
-
-    raise NotImplementedError("Please implement the split_data function.")
+    res = train_test_split(X, y, test_size=test_size, random_state=random_state, shuffle=shuffle)
+    return (np.array(res[0]), np.array(res[1]), np.array(res[2]), np.array(res[3]))
 
 def standardize(X_train: np.array, X_test: np.array) -> Tuple[np.array, np.array]:
     """Standardize the training and testing data.
@@ -62,8 +62,14 @@ def standardize(X_train: np.array, X_test: np.array) -> Tuple[np.array, np.array
     Returns:
         Tuple[np.array, np.array]: The standardized training and testing data.
     """
-    raise NotImplementedError("Please implement the standardize function.")
+    # num_features = np.shape(X_train)[1]
+    mean = X_train.mean(axis=0)
+    # print('mean: ', mean)
+    sd = X_train.std(axis=0)
+    # print('std: ', sd)
+    f = lambda x: (x - mean) / sd
 
+    return (np.array([f(x) for x in X_train]), np.array([f(x) for x in X_test]))
 
 def euclidean_distance(x1: np.array, x2: np.array) -> float:
     """Calculate the Euclidean distance between two points x1 and x2.
@@ -75,8 +81,11 @@ def euclidean_distance(x1: np.array, x2: np.array) -> float:
     Returns:
         float: The Euclidean distance between the two points.
     """
-    raise NotImplementedError("Please implement the euclidean_distance function.")
-
+    # dist_sum = 0
+    # for x1_i, x2_i in zip(x1, x2):
+    #     dist_sum += (x2_i - x1_i) ** 2
+    # return dist_sum ** 0.5
+    return np.linalg.norm(x1 - x2)
 
 def cosine_distance(x1: np.array, x2: np.array) -> float:
     """Calculate the cosine distance between two points x1 and x2.
@@ -88,7 +97,7 @@ def cosine_distance(x1: np.array, x2: np.array) -> float:
     Returns:
         float: The cosine distance between the two points.
     """
-    raise NotImplementedError("Please implement the cosine_distance function.")
+    return 1 - np.dot(x1, x2) / (np.linalg.norm(x1) * np.linalg.norm(x2))
     
 def knn(x: np.array, y: np.array, 
         sample: np.array, distance_method: Callable, k: int) -> int:
@@ -106,23 +115,12 @@ def knn(x: np.array, y: np.array,
         int: The label of the sample.
     """
 
-    # (distance, label) between the test sample and all the training samples.
-    distances = []
-
-    for x_i, y_i in zip(x, y):
-
-        # 1. Calculate the distance between the test sample and the training sample.
-        
-        # 2. Append the (distance, label) tuple to the distances list.
-
-        raise NotImplementedError("Please implement the knn function distance loop.")
-
-    # 3. Sort the tuples by distance (the first element of each tuple in distances).
-
-    # 4. Get the unique labels and their counts. HINT: np.unique has a return_counts parameter.
-
-    # 5. Return the label with the most counts.
+    distances = [(distance_method(x_i, sample), y_i) for x_i, y_i in zip(x,y)]
     
+    distances.sort(key=lambda d: d[0])
+    values, counts = np.unique([y for dist, y in distances[:k]], return_counts=True)
+    
+    return values[np.argmax(counts)]
 
 def linear_regression(X: np.array, y: np.array) -> np.array:
     """Perform linear regression using the normal equation.
@@ -140,10 +138,11 @@ def linear_regression(X: np.array, y: np.array) -> np.array:
     """
 
     # 1. Concatenate the bias term to X using np.hstack.
-
+    ones_col = np.ones((np.shape(X)[0], 1))
+    X = np.hstack((ones_col, X))    
     # 2. Calculate the weights using the normal equation.
-
-    raise NotImplementedError("Please implement the linear_regression function.")
+    Xt = np.transpose(X)
+    return np.linalg.inv(Xt @ X) @ Xt @ y
 
 def linear_regression_predict(X: np.array, weights: np.array) -> np.array:
     """Predict the dependent variables using the weights and independent variables.
@@ -159,11 +158,10 @@ def linear_regression_predict(X: np.array, weights: np.array) -> np.array:
         np.array: The predicted dependent variables.
     """
     # 1. Concatenate the bias term to X using np.hstack.
-    
+    ones_col = np.ones((np.shape(X)[0], 1))
+    X = np.hstack((ones_col, X))
     # 2. Calculate the predictions.
-    
-    raise NotImplementedError("Please implement the linear_regression_predict function.")
-    
+    return X @ weights    
 
 def mean_squared_error(y_true: np.array, y_pred: np.array) -> float:
     """Calculate the mean squared error.
@@ -177,7 +175,8 @@ def mean_squared_error(y_true: np.array, y_pred: np.array) -> float:
     Returns:
         float: The mean squared error.
     """
-    raise NotImplementedError("Please implement the mean_squared_error function.")
+    y_delta = y_true - y_pred
+    return np.dot(y_delta, y_delta) / len(y_pred)
 
 def sigmoid(z: np.array) -> np.array:
     """Calculate the sigmoid function.
@@ -188,7 +187,7 @@ def sigmoid(z: np.array) -> np.array:
     Returns:
         np.array: The output of the sigmoid function.
     """
-    raise NotImplementedError("Please implement the sigmoid function.")
+    return 1 / (1 + np.exp(-z))
 
 def logistic_regression_gradient_descent(X: np.array, y: np.array, 
                                          learning_rate: float = 0.01, 
@@ -219,21 +218,30 @@ def logistic_regression_gradient_descent(X: np.array, y: np.array,
         np.array: The weights for the logistic regression model.
     """
     # 1. Concatenate the bias term to X using np.hstack.
+    ones_col = np.ones((np.shape(X)[0], 1))
+    X = np.hstack((ones_col, X))
+    Xt = np.transpose(X)
+    m = np.shape(X)[0]
 
     # 2. Initialize the weights with zeros. np.zeros is your friend here! 
     weights = np.zeros(X.shape[1])
 
     # For each iteration, update the weights.
     for _ in range(num_iterations):
-
         # 3. Calculate the predictions.
+        y_pred = sigmoid(X @ weights)
+        # print('y delt: ', (y_pred-y)[:10])
 
         # 4. Calculate the gradient.
-    
+        J_gradient = (1 / m) * Xt @ (y_pred - y)
+
         # 5. Update the weights -- make sure to use the learning rate!
+        # print("roc: ", learning_rate * J_gradient)
+        # print('weights: ', weights)
+        weights = weights - (learning_rate * J_gradient)
 
-        raise NotImplementedError("Please implement the logistic_regression_gradient_descent function.")
-
+    # print(weights)
+    return weights
 
 def logistic_regression_predict(X: np.array, weights: np.array) -> np.array:
     """Predict the labels for the logistic regression model.
@@ -247,7 +255,8 @@ def logistic_regression_predict(X: np.array, weights: np.array) -> np.array:
         np.array: The predicted labels.
     """
     # 1. Add the bias term using np.hstack.
+    ones_col = np.ones((np.shape(X)[0], 1))
+    X = np.hstack((ones_col, X))
 
     # 2. Calculate the predictions using the provided weights.
-
-    raise NotImplementedError("Please implement the logistic_regression_predict function.")
+    return sigmoid(X @ weights)
