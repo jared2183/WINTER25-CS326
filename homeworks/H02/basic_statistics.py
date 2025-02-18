@@ -179,7 +179,7 @@ def calculate_covariance_numpy(x: np.array, y: np.array) -> float:
 
     for x_i, y_i in zip(x, y):
         cov_sum += (x_i - x_mean) * (y_i - y_mean)
-    return cov_sum/n
+    return cov_sum / n
 
 def calculate_pearson_correlation_numpy(x: np.array, y: np.array) -> float:
     """Use only numpy to calculate pearson's correlation coefficient.

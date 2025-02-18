@@ -230,8 +230,7 @@ def logistic_regression_gradient_descent(X: np.array, y: np.array,
     for _ in range(num_iterations):
         # 3. Calculate the predictions.
         y_pred = sigmoid(X @ weights)
-        # print('y delt: ', (y_pred-y)[:10])
-
+        
         # 4. Calculate the gradient.
         J_gradient = (1 / m) * Xt @ (y_pred - y)
 
