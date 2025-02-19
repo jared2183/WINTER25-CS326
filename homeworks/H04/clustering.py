@@ -16,7 +16,7 @@ def euclidean_distance(x: np.ndarray, y: np.ndarray) -> float:
     Returns:
         float : Euclidean distance.
     """
-    raise NotImplementedError("Please implement the euclidean_distance function.")
+    return np.sqrt(np.sum((x - y) ** 2))
 
 def cosine_distance(x: np.ndarray, y: np.ndarray) -> float:
     """Compute cosine distance between two vectors.
@@ -31,7 +31,7 @@ def cosine_distance(x: np.ndarray, y: np.ndarray) -> float:
         float : Cosine distance.
 
     """
-    raise NotImplementedError("Please implement the cosine_distance function.")
+    return 1 - np.dot(x, y) / (np.linalg.norm(x) * np.linalg.norm(y))
 
 def manhattan_distance(x: np.ndarray, y: np.ndarray) -> float:
     """Compute Manhattan distance between two vectors.
@@ -45,7 +45,7 @@ def manhattan_distance(x: np.ndarray, y: np.ndarray) -> float:
     Returns:
         float : Manhattan distance.
     """
-    raise NotImplementedError("Please implement the manhattan_distance function.")
+    return np.sum(abs(x - y))
 
 def pairwise_distance(X: np.ndarray, Y: np.ndarray, distance_method: Callable) -> np.ndarray:
     """
@@ -64,13 +64,20 @@ def pairwise_distance(X: np.ndarray, Y: np.ndarray, distance_method: Callable) -
     Returns: 
         np.ndarray of pairwise distances of shape (n_samples_1, n_samples_2).
     """
-    raise NotImplementedError("Please implement the pairwise_distance function.")
+    n_samples_1 = X.shape[0]
+    n_samples_2 = Y.shape[0]
+    res = np.zeros((n_samples_1, n_samples_2))
 
+    for i in range(n_samples_1):
+        for j in range(n_samples_2):
+            res[i][j] = distance_method(X[i], Y[j])
+
+    return res
 
 def k_means(X: np.ndarray, k: int, initial_centroids: np.ndarray, distance_method: Callable, max_iter: int = 5) -> tuple[np.ndarray, np.ndarray]:
     """K-means clustering algorithm.
 
-    NOTE: You should use pairwise_manhattan_distance function to compute distances.
+    NOTE: You should use pairwise_manhattan_distance function to compute distances. (is this true? why have a distance_method then?)
 
     NOTE: Your loop should break when the labels do not change.
 
@@ -95,24 +102,28 @@ def k_means(X: np.ndarray, k: int, initial_centroids: np.ndarray, distance_metho
     for _ in range(max_iter):
 
         # 1. Compute distances between each sample and each centroid.
-
+        dists = pairwise_distance(X, centroids, distance_method)
         
         # 2. Assign each sample to the closest centroid.
-
+        new_labels = np.argmin(dists, axis=1)
         
         # 3. Exit the loop if labels do not change from previous iteration.
-
+        if np.array_equal(new_labels, labels):
+            break
 
         # 4. Update labels.
-
+        labels = new_labels
+        # print('labels shape', labels.shape)
+        # print('x shape', X.shape)
+        # print('1', np.where(labels == 0)[0].shape)
+        # print('2', X[np.where(labels == 0)[0]].shape)
+        # print('3', np.average(X[np.where(labels == 0)[0]], axis=0).shape)
 
         # 5. Update k centroids to be the mean of all labeled samples.
-
-        raise NotImplementedError("Please implement the k_means function.")
-
+        centroids[:k] = np.array([np.average(X[np.where(labels == centroid_i)[0]], axis=0) for centroid_i in range(k)])  # isn't k redundant? shouldnt we just get k from number of initial clusters?
 
     # 6. Return final centroids and labels.
-    raise NotImplementedError("Please implement the k_means function.")
+    return (centroids, labels)
 
 
 
@@ -130,7 +141,7 @@ def dbscan(X: np.ndarray, eps: float, min_samples: int) -> np.ndarray:
     Returns:
         np.ndarray: Cluster labels of shape (n_samples,).
     """
-    raise NotImplementedError("Please implement the dbscan function.")
+    return DBSCAN(eps=eps, min_samples=min_samples).fit_predict(X)
 
 
 def local_silhouette_score(X: np.ndarray, labels: np.ndarray, metric: str) -> float:
@@ -147,4 +158,4 @@ def local_silhouette_score(X: np.ndarray, labels: np.ndarray, metric: str) -> fl
     Returns:
         float: Silhouette score.
     """
-    raise NotImplementedError("Please implement the local_silhouette_score function.")
+    return silhouette_score(X, labels, metric=metric)
