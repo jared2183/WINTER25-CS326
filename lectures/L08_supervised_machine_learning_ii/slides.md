@@ -47,7 +47,9 @@ revealOptions:
 - Exam Part I will be on 02.11.2025.
   - The exam will cover all material up to and including L.09.
   - Multiple choice (\~24) and free response (\~6) questions.
-  - In person and closed book.
+  - In person
+  - Closed book.
+  - If you have accomodations through AccessibleNU, I will send an email with instructions by early next week.
 
 <!--s-->
 
@@ -107,7 +109,7 @@ I have a binary classifier that predicts whether or not a credit card transactio
 <div class='col-wrapper' style = 'display: flex; align-items: top; margin-top: 2em; margin-left: -1em;'>
 <div class='c1' style = 'width: 60%; display: flex; align-items: center; flex-direction: column; margin-top: 2em'>
 <div style = 'line-height: 2em;'>
-  &emsp;A. The classifier is worse than random. <br>
+  &emsp;**A. The classifier is worse than random.** <br>
   &emsp;B. The classifier is random. <br>
   &emsp;C. The classifier is better than random. <br>
 </div>
@@ -295,16 +297,16 @@ There are several approaches to multi-label classification:
 <div class="c1" style = "width: 50%">
 
 ### Binary Relevance
-Train a separate binary classifier for each label -- one classifier for each genre of a movie.
+Train a separate binary classifier for each label -- e.g. one classifier for each genre of a movie.
 
 ### Classifier Chains
-Train a chain of binary classifiers, where each classifier predicts the next label -- predict the next genre of a movie based on the previous genre.
+Train a chain of binary classifiers, where each classifier predicts the next label -- e.g. predict the next genre of a movie based on the previous genre.
 
 </div>
 <div class="c2" style = "width: 50%">
 
 ### Label Powerset
-Treat each unique label combination as a single class -- treat the combination of genres as a single class.
+Treat each unique label combination as a single class -- e.g. treat the combination of genres as a single class.
 
 
 </div>
@@ -330,7 +332,7 @@ Let's say we have a dataset of movie genres. We want to predict the genre(s) of 
 <div class='c1' style = 'width: 60%; display: flex; align-items: center; flex-direction: column; margin-top: 2em'>
 <div style = 'line-height: 2em;'>
 &emsp;A. Multi-Class <br>
-&emsp;B. Multi-Label <br>
+&emsp;**B. Multi-Label** <br>
 </div>
 </div>
 <div class='c2' style = 'width: 40%; display: flex; align-items: center; flex-direction: column;'>
@@ -342,12 +344,12 @@ Let's say we have a dataset of movie genres. We want to predict the genre(s) of 
 
 ## L.08 | Q.03
 
-Let's say we have a dataset of movie genres. We know that a movie can only one genre, but there are many to choose from. Should we use multi-class or multi-label classification?
+Let's say we have a dataset of movie genres. We know that a movie can have only one genre, but there are many to choose from. Should we use multi-class or multi-label classification?
 
 <div class='col-wrapper' style = 'display: flex; align-items: top; margin-top: 2em; margin-left: -1em;'>
 <div class='c1' style = 'width: 60%; display: flex; align-items: center; flex-direction: column; margin-top: 2em'>
 <div style = 'line-height: 2em;'>
-&emsp;A. Multi-Class <br>
+&emsp;**A. Multi-Class** <br>
 &emsp;B. Multi-Label <br>
 </div>
 </div>

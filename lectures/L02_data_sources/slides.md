@@ -198,12 +198,11 @@ You're building a model to predict the price of a house based on its location, s
 <div class="c1" style = "width: 60%;">
 
 <div style = "line-height: 2em;">
-&emsp;&emsp;A. Bulk Downloads <br>
-&emsp;&emsp;B. APIs <br>
-&emsp;&emsp;C. Scraping, web crawling <br>
-&emsp;&emsp;D. BYOD (Bring Your Own Data) <br>
+&emsp; **A. Bulk Downloads** <br>
+&emsp; B. APIs <br>
+&emsp; C. Scraping, web crawling <br>
+&emsp; D. BYOD (Bring Your Own Data) <br>
 </div>
-
 </div>
 
 <div class="c2 col-centered" style = "width: 40%;">
@@ -223,10 +222,10 @@ You just built an amazing stock market forecasting model. Congrats! Now, you wan
 <div class="c1" style = "width: 60%;">
 
 <div style = "line-height: 2em;">
-&emsp;&emsp;A. Bulk Downloads <br>
-&emsp;&emsp;B. APIs <br>
-&emsp;&emsp;C. Scraping, web crawling <br>
-&emsp;&emsp;D. BYOD (Bring Your Own Data) <br>
+&emsp; A. Bulk Downloads <br>
+&emsp; **B. APIs** <br>
+&emsp; C. Scraping, web crawling <br>
+&emsp; D. BYOD (Bring Your Own Data) <br>
 </div>
 
 </div>
@@ -494,6 +493,10 @@ df = pd.read_sql(query, conn)
   
   Write a SQL query that selects the <span class = "code-span">name</span> and <span class = "code-span">year</span> columns from a <span class = "code-span">movies</span> table where the <span class = "code-span">year</span> is greater than 2000.
 
+  ```sql
+  SELECT name, year FROM movies WHERE year > 2000;
+  ```
+
   </div>
   </div>
   <div class="c2 col-centered" style = "bottom: 0; right: 0; width: 100%; padding-top: 5%">
@@ -645,7 +648,7 @@ You have streaming data that is occasionally dropping values. Which of the follo
 <div class="c1 col-centered" style = "width: 60%; padding-bottom: 20%;">
 
 <div style = "line-height: 2em;">
-&emsp;A. Forward fill <br>
+&emsp;**A. Forward fill** <br>
 &emsp;B. Imputation by interpolation <br>
 &emsp;C. Mean value imputation <br>
 &emsp;D. Backward fill <br>

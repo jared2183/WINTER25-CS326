@@ -106,7 +106,7 @@ What test would you use to compare the two groups, assuming all conditions are m
 
 &emsp;A. Chi-Square Test of Independence<br>
 &emsp;B. One-Way ANOVA<br>
-&emsp;C. T-Test (Independent)<br>
+&emsp;**C. T-Test (Independent)**<br>
 &emsp;D. T-Test (Paired)<br>
 </div>
 <div class='c2 col-centered' style = 'width: 50%;'>
@@ -160,7 +160,7 @@ What test would you use to compare the two groups, assuming all conditions are m
 
 &emsp;A. Chi-Square Test of Independence<br>
 &emsp;B. One-Way ANOVA<br>
-&emsp;C. T-Test (Independent)<br>
+&emsp;**C. T-Test (Independent)**<br>
 &emsp;D. T-Test (Paired)<br>
 </div>
 <div class='c2 col-centered' style = 'width: 50%;'>
@@ -200,7 +200,7 @@ What test would you use to compare the two groups, assuming all conditions are m
 &emsp;A. Chi-Square Test of Independence<br>
 &emsp;B. One-Way ANOVA<br>
 &emsp;C. T-Test (Independent)<br>
-&emsp;D. T-Test (Paired)<br>
+&emsp;**D. T-Test (Paired)**<br>
 </div>
 <div class='c2 col-centered' style = 'width: 50%;'>
 <iframe src = "https://drc-cs.github.io/WINTER25-CS326/lectures/index.html?label=L05 | Q2" height = "100%"></iframe>
@@ -583,7 +583,7 @@ After observing the correlation between tagging a friend and increased user rete
 
 <div style = "line-height: 2em;">
 &emsp;A. Yes <br>
-&emsp;B. No <br>
+&emsp;**B. No** <br>
 </div>
 </div>
 

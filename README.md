@@ -20,17 +20,17 @@ This schedule is tentative and may change as the course progresses.
 | 6 | 01.23.2025 | [Data Preprocessing](https://drc-cs.github.io/WINTER25-CS326/lectures/L06_data_preprocessing/#/) | |
 | 7 | 01.28.2025 | [Supervised Machine Learning I <br> *KNN / Linear & Logistic Regression*](https://drc-cs.github.io/WINTER25-CS326/lectures/L07_supervised_machine_learning_i/#/) | [H.02](https://canvas.northwestern.edu/courses/226962/assignments/1508086) |
 | 8 | 01.30.2025 | [Supervised Machine Learning II <br>  *ROC-AUC / K-Fold / Multi-Class* <br>](https://drc-cs.github.io/WINTER25-CS326/lectures/L08_supervised_machine_learning_ii/#/) | |
-| 9 | 02.04.2025 | Supervised Machine Learning III <br>  *Decision Trees / Ensemble Models*| |
-| 12 | 02.06.2025 | Bonus Lecture: Docker Containers | [H.03](https://canvas.northwestern.edu/courses/226962/assignments/1508088) |
-| 10 | 02.11.2025 | Exam Part I | |
-| 11 | 02.13.2025 | Dimensionality Reduction | |
-| 13 | 02.18.2025 | Clustering Algorithms | |
-| 14 | 02.20.2025 | Recommendation Modeling | H.04 |
-| 15 | 02.25.2025 | Time Series Analysis | |
-| 16 | 02.27.2025 | Natural Language Processing <br> *Classical NLP* | |
-| 17 | 03.04.2025 | Natural Language Processing <br> *Modern NLP* | H.05 |
-| 18 | 03.06.2025 | Exam Part II Review |  |
-| 19 | 03.11.2025 | Storytelling and Ethics | |
+| 9 | 02.04.2025 | [Supervised Machine Learning III <br>  *Decision Trees / Ensemble Models*](https://drc-cs.github.io/WINTER25-CS326/lectures/L09_supervised_machine_learning_iii/#/)| |
+| 10 | 02.06.2025 | [Docker Containers &  Exam Review](https://drc-cs.github.io/WINTER25-CS326/lectures/L09.75_docker_infrastructure/#/) | [H.03](https://canvas.northwestern.edu/courses/226962/assignments/1508088) |
+| 11 | 02.11.2025 | Exam Part I | |
+| 12 | 02.13.2025 | [Clustering Algorithms](https://drc-cs.github.io/WINTER25-CS326/lectures/L10_clustering/#/) | |
+| 13 | 02.18.2025 | [Recommendation Modeling](https://drc-cs.github.io/WINTER25-CS326/lectures/L11_recommendation_modeling/#/) | |
+| 14 | 02.20.2025 | Time Series Analysis | |
+| 15 | 02.25.2025 | Natural Language Processing <br> *Classical NLP* | H.04 |
+| 16 | 02.27.2025 | Natural Language Processing <br> *Modern NLP* | |
+| 17 | 03.04.2025 | Online Analytical Processing | |
+| 18 | 03.06.2025 | Storytelling and Ethics | H.05 |
+| 19 | 03.11.2025 | Exam Part II Review | |
 | 20 | 03.13.2025 | Exam Part II |  |
 
 ------
@@ -78,7 +78,7 @@ Lectures will be broken down into theory and applications.
 
 ## Attendance
 
-Attendance is mandatory for CS 326 and is worth 10% of your final grade. Most lectures will have interactive quizzes throughout the lecture that will be graded for completion. The top 16 quiz scores will be used to calculate your attendance grade, leaving you with 4 freebies throughout the quarter.
+Attendance is mandatory for CS 326 and is worth 10% of your final grade. Most lectures will have interactive quizzes throughout the lecture that will be graded for completion. You have 4 free absences throughout the quarter.
 
 ------
 
@@ -153,3 +153,4 @@ If you are feeling distressed or overwhelmed, please reach out for help. Student
 
 - 1-2P on Tuesdays in Mudd 3532
 - 2-3P on Thursdays in Mudd 3532
+- 6-7P on Mondays in Kresge Lobby

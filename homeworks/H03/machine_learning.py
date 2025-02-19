@@ -208,6 +208,9 @@ def logistic_regression_gradient_descent(X: np.array, y: np.array,
     NOTE: The tests expect a learning rate of 0.01 and 5000 iterations. Do
     not change these values prior to submission.
 
+    NOTE: This function expects you to use the sigmoid function you implemented
+    above.
+
     Args:
         X (np.array): The independent variables.
         y (np.array): The dependent variables.
@@ -245,13 +248,16 @@ def logistic_regression_gradient_descent(X: np.array, y: np.array,
 def logistic_regression_predict(X: np.array, weights: np.array) -> np.array:
     """Predict the labels for the logistic regression model.
 
+    NOTE: This function expects you to use the sigmoid function you implemented
+    above.
+
     Args:
         X (np.array): The independent variables.
         weights (np.array): The weights of the logistic regression model. This
             should include the bias term.
     
     Returns:
-        np.array: The predicted labels.
+        np.array: The output of logistic regression.
     """
     # 1. Add the bias term using np.hstack.
     ones_col = np.ones((np.shape(X)[0], 1))

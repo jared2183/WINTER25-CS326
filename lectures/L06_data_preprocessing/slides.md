@@ -404,7 +404,7 @@ You are working with a dataset that contains a feature with 100 unique categorie
 
 <div style = 'line-height: 2em;'>
 &emsp;A. One-Hot Encoding <br>
-&emsp;B. Feature Hashing <br>
+&emsp;**B. Feature Hashing** <br>
 </div>
 </div>
 <div class="c2" style="width: 50%; height: 100%;">

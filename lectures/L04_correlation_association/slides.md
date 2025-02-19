@@ -232,7 +232,7 @@ What is a benefit of using Pearson's correlation coefficient over covariance?
 <div class="c1 col-centered" style = "width: 70%; padding-bottom: 20%;">
 
 <div style = "line-height: 2em; font-size: 0.8em;">
-&emsp;A. It is a standardized measure of the strength of the relationship. <br>
+&emsp;**A. It is a standardized measure of the strength of the relationship.** <br>
 &emsp;B. It is not sensitive to outliers. <br>
 &emsp;C. It is not affected by the scale of the variables. <br>
 &emsp;D. It is not affected by the distribution of the data. <br>
@@ -482,7 +482,7 @@ What is otherwise defined as the *interestingness* of an association rule?
 <div style = "line-height: 2em; font-size: 0.8em;">
 &emsp;A. Confidence <br>
 &emsp;B. Support <br>
-&emsp;C. Lift <br>
+&emsp;**C. Lift** <br>
 </div>
 
 </div>

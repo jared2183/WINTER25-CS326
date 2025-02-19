@@ -197,7 +197,7 @@ A.
 median = sorted(data)[len(data) // 2]
 ```
 
-B. 
+**B. **
 
 ```python
 median = sorted(data)[len(data) // 2 - 1]
@@ -226,7 +226,7 @@ Is this distribution positively or negatively skewed?
 <div class="col-wrapper">
 <div class="c1" style = "width: 60%;">
 
-&emsp;A. Positively skewed<br>
+&emsp;**A. Positively skewed**<br>
 &emsp;B. Negatively skewed<br>
 &emsp;C. No skew<br>
 </div>
