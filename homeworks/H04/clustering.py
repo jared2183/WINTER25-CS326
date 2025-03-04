@@ -120,7 +120,7 @@ def k_means(X: np.ndarray, k: int, initial_centroids: np.ndarray, distance_metho
         # print('3', np.average(X[np.where(labels == 0)[0]], axis=0).shape)
 
         # 5. Update k centroids to be the mean of all labeled samples.
-        centroids[:k] = np.array([np.average(X[np.where(labels == centroid_i)[0]], axis=0) for centroid_i in range(k)])  # isn't k redundant? shouldnt we just get k from number of initial clusters?
+        centroids = np.array([np.average(X[np.where(labels == centroid_i)[0]], axis=0) for centroid_i in range(k)])  # isn't k redundant? shouldnt we just get k from number of initial clusters?
 
     # 6. Return final centroids and labels.
     return (centroids, labels)
