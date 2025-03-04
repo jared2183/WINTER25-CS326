@@ -25,12 +25,12 @@ This schedule is tentative and may change as the course progresses.
 | 11 | 02.11.2025 | Exam Part I | |
 | 12 | 02.13.2025 | [Clustering Algorithms](https://drc-cs.github.io/WINTER25-CS326/lectures/L10_clustering/#/) | |
 | 13 | 02.18.2025 | [Recommendation Modeling](https://drc-cs.github.io/WINTER25-CS326/lectures/L11_recommendation_modeling/#/) | |
-| 14 | 02.20.2025 | Time Series Analysis | |
-| 15 | 02.25.2025 | Natural Language Processing <br> *Classical NLP* | H.04 |
-| 16 | 02.27.2025 | Natural Language Processing <br> *Modern NLP* | |
-| 17 | 03.04.2025 | Online Analytical Processing | |
-| 18 | 03.06.2025 | Storytelling and Ethics | H.05 |
-| 19 | 03.11.2025 | Exam Part II Review | |
+| 14 | 02.20.2025 | [Time Series Analysis](https://drc-cs.github.io/WINTER25-CS326/lectures/L12_time_series/#/) | |
+| 15 | 02.25.2025 | [Natural Language Processing <br> *Classical NLP*](https://drc-cs.github.io/WINTER25-CS326/lectures/L13_nlp_I/#/) | H.04 |
+| 16 | 02.27.2025 | --- | |
+| 17 | 03.04.2025 | [Natural Language Processing <br> *Modern NLP*](https://drc-cs.github.io/WINTER25-CS326/lectures/L14_nlp_ii/#/) | |
+| 18 | 03.06.2025 | Storytelling and Ethics | |
+| 19 | 03.11.2025 | Exam Part II Review | [H.05](https://canvas.northwestern.edu/courses/226962/assignments/1508092) |
 | 20 | 03.13.2025 | Exam Part II |  |
 
 ------
@@ -100,7 +100,7 @@ Homeworks are designed to reinforce the concepts covered in lecture. They will b
 | H.02 | 01.28.2025 | Exploratory Data Analysis & Hypothesis Testing |
 | H.03 | 02.06.2025 | Supervised Machine Learning |
 | H.04 | 02.20.2025 | Unsupervised Machine Learning |
-| H.05 | 03.04.2025 | Time Series |
+| H.05 | 03.11.2025 | Time Series |
 
 ------
 

@@ -77,7 +77,7 @@ def pairwise_distance(X: np.ndarray, Y: np.ndarray, distance_method: Callable) -
 def k_means(X: np.ndarray, k: int, initial_centroids: np.ndarray, distance_method: Callable, max_iter: int = 5) -> tuple[np.ndarray, np.ndarray]:
     """K-means clustering algorithm.
 
-    NOTE: You should use pairwise_manhattan_distance function to compute distances. (is this true? why have a distance_method then?)
+    NOTE: You should use pairwise_distance function to compute distances.
 
     NOTE: Your loop should break when the labels do not change.
 

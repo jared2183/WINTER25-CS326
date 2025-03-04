@@ -310,6 +310,31 @@ Pseudocode for estimating $k$ using the silhouette score:
 
 <!--s-->
 
+## Silhouette Score Pseudocode
+
+```text
+1. Determine the number of data points, n.
+2. Initialize an array silhouette_values with zeros, length n.
+
+3. For each data point i in X:
+    a. Calculate a(i): 
+       - Determine the cluster of point i, cluster_i.
+       - Compute the average distance from point i to all other points in cluster_i.
+    
+    b. Calculate b(i):
+       - For each cluster_k that is not cluster_i:
+           - Compute the average distance from point i to all points in cluster_k.
+           - Update b(i) to the minimum of its current value and this new average distance.
+   
+    c. Compute silhouette value for point i:
+       - Use the formula: silhouette_values[i] = (b(i) - a(i)) / max(a(i), b(i))
+
+4. Calculate the overall silhouette score:
+   - Compute the mean of all entries in silhouette_values.
+```
+
+<!--s-->
+
 <div class="header-slide">
 
 # Hierarchical Clustering
